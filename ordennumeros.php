@@ -7,12 +7,18 @@
     echo "Hay ".count($numeros)." numeros"."<br>";
     echo "Arreglo Original: "."<br>";
     var_dump ($numeros);                       //para saber el contenido de un arreglo
-    
-    sort($numeros);                            //para ordenar
 
-    echo "<br>"."<br>"."Arreglo ordenado: ";
-    for($i=0; $i < count($numeros); $i++){
-        echo $numeros[$i].", ";             
+    for($i=0;$i<count($numeros);$i++){
+        $a=$numeros[$i];
+        
+            for($v=$i-1;$v>=0 && $numeros[$v]> $a; $v-- ){
+                $numeros[$v+1]=$numeros[$v];
+            }
+            $numeros[$v+1]=$a;
     }
+    echo "<br>"."<br>"."Arreglo ordenado: ";
 
+    for($i=0;$i<count($numeros);$i++){
+        echo $numeros[$i]." ";
+    }
 ?>
